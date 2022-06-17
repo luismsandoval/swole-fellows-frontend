@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+import { withAuth0 } from '@auth0/auth0-react';
+ 
 
 class Dashboard extends React.Component {
 
@@ -9,15 +11,37 @@ class Dashboard extends React.Component {
     super(props);
     this.state = {
       searchQuery: '',
-      foodsDisplayed: ''
+      foodsDisplayed: '',
+      errorMessage: '',
+      foods: ''
     }
   }
 
-  getFoods = async () => {
+
+  async componentDidMount() {
+    // new for lab 15
+  }
+
+
+  getFoods = async (event) => {
+    event.preventDefault();
     try {
-      const url = `${process.env.REACT_APP_SERVER}/food?query=${this.state.searchQuery}`;
-      const response = await axios.get(url);
-      this.setState({ foodsDisplayed: response.data })
+      if (this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+
+        console.log('token: ', jwt);
+
+        const config = {
+          headers: { "Authorization": `Bearer ${jwt}` }, // new lab 15
+          method: 'get',
+          baseURL: process.env.REACT_APP_SERVER,
+          url: `/food?search=${this.state.searchQuery}`,
+        }
+        const foodResponse = await axios(config);
+        this.setState({ foods: foodResponse.data });
+        console.log("Food from API call: ", foodResponse.data);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -43,4 +67,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default withAuth0(Dashboard);

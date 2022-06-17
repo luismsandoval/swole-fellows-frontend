@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# 301n26-Final-Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Members
+1. Luis Sandoval
+2. Justin Mathieu 
+3. Jim Doyle
 
-## Available Scripts
+## Cooperation Plan
 
-In the project directory, you can run:
+1. What are the key strengths of each person on the team?
+    - Luis: Frontend styling
+    - Jusin: Componentization and testing.
+    - Jim: Adept problem solver.<br/><br/>
+    
 
-### `npm start`
+2. How can you best utilize these strengths in the execution of your project?
+   - Luis: Handle the bulk of frontend styling.
+   - Justin: Ensuring code is easy to read and understand. 
+    - Jim: Focusing my attention on the key details for the project. <br/><br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. In which professional competencies do you each want to develop greater strength?
+    - Luis: The quality competency, specifically root cause resolution.
+    - Justin: Quality, craftsmanship and communication.
+    - Jim: Technical skillset. While I have progressed well since I first started out, I am looking to grow my technical abilities continuously.<br/><br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work?<br/>
+   - Start every workday with a meeting where we go over specific tasks we need accomplished and properly assign those tasks based on teammates strengths. End with another wrap up meeting by close of business.
 
-### `npm test`
+## Conflict Plan
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. What will be your group’s process to resolve conflict, when it arises?
+    - If there are any issues that need to be resolved, the team will meet to discuss them. Any grievances will be discussed and resolved. <br/><br/>
+2. What will your team do if one person is taking over the project and not letting the other members contribute?
+    - Similar to above, we will have a meeting to discuss the issue. Specific tasks will be re-established or re-assigned as necessary. <br/><br/>
 
-### `npm run build`
+3. How will you approach each other and the challenges of the project knowing that it is impossible for all members to be at the exact same place in understanding and skill level?
+   - Tasks will be assigned based on skill level. If a team member is stuck on something, the others will help them get over it and teach them what they know. <br/><br/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. How will you raise concerns to members who are not adequately contributing?
+   - We will have a team meeting where we again will go over teammate specific tasks to ensure that all team members are adequately contributing. <br/><br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. How and when will you escalate the conflict if your resolution attempts are unsuccessful?
+    - If conflicts cannot be resolved, and only if it is absolutely necessary, the team will go to Code Fellows staff.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Communication Plan
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. What hours will you be available to communicate?
+    - Jim: 9AM to 10PM.  
+    - Luis: 9AM to 10PM.
+    - Justin: 9AM to 10PM <br/><br/>
+2. What platforms will you use to communicate (ie. Slack, phone …)?
+    - Slack group chat. <br/><br/>
+3. How often will you take breaks?
+    - One ten minute break every hour. <br/><br/>
+4. What is your plan if you start to fall behind?
+    - Reassess. Ditch our more ambitous goals. <br/><br/>
+5. How will you communicate after hours and on the weekend?
+    - Slack. <br/><br/>
+6. What is your strategy for ensuring everyone’s voice is heard?
+    - Daily meetings. <br/><br/>
+7. How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up?
+    - Don't be a  jerk. 
+## Work Plan
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. How you will identify tasks, assign tasks, know when they are complete, and manage work in general?
+   - Once A project has been selected, the critical components for MVP will be identified and assigned to group members based on interest and skillset. <br/><br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. What project management tool will be used?
+    - Trello
+## Git Process 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. What components of your project will live on GitHub?
+   - Client side and server side. <br/><br/>
 
-## Learn More
+2. How will you share the repository with your teammates?
+    - Github Organization <br/><br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. What is your Git flow?
+    - Each dev on the team will checkout their own branch to work on. Pull requests will be sent to the developer branch, with pushes to the Main only being made when the developer branch has functional code. <br/><br/> 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Will you be using a PR review workflow? If so, consider:
+    - How many people must review a PR?
+      - 2
+    - Who merges PRs?
+      - Merges can be done by anyone on the team. 
+    - How often will you merge?
+      - At the end of a work session.
+    - How will you communicate that it’s time to merge?
+      - We will merge at the end of every work session.
 
-### Code Splitting
+## Project Prep Deck 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Final Project Deck](https://docs.google.com/presentation/d/1dWolPdbrgHnupMhS6balcW6C11EsglGrzgB6pRs1ZUo/edit?usp=sharing)
 
-### Analyzing the Bundle Size
+## Wireframe
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![wireframe](img/wireframe.png)
 
-### Making a Progressive Web App
+## Domain Modeling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![domainmodel](img/domainmodel.png)
 
-### Advanced Configuration
+## Database Schema Diagram
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![schemamodel](img/schemamodel.png)
