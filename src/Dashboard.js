@@ -25,11 +25,8 @@ class Dashboard extends React.Component {
   }
 
   async componentDidMount() {
-    // new for lab 15
     // const res = await this.props.auth0.getIdTokenClaims();
-    // console.log(res);
     // const jwt = res.__raw;
-
     // console.log('token: ', jwt);
   }
 
@@ -52,7 +49,6 @@ class Dashboard extends React.Component {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-
         console.log('token: ', jwt);
 
         const config = {
@@ -63,7 +59,6 @@ class Dashboard extends React.Component {
         }
         const foodResponse = await axios(config);
         this.setState({ foodsAPI: foodResponse.data });
-        console.log("Food from API call: ", foodResponse.data);
       }
     } catch (error) {
       console.error(error);
@@ -155,7 +150,6 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    console.log(this.state.showModal);
     return (
       <Container>
         <h1>Dashboard</h1>
