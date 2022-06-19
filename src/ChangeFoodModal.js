@@ -9,10 +9,10 @@ class ChangeFoodModal extends React.Component {
 
     event.preventDefault();
     const updatedFood = {
-      calories: Math.round((this.props.selectedFoodToUpdate.calories * event.target.formServing.value) / this.props.selectedFoodToUpdate.servingSize ),
-      fats: Math.round((this.props.selectedFoodToUpdate.fats * event.target.formServing.value) / this.props.selectedFoodToUpdate.servingSize),
-      carbs: Math.round((this.props.selectedFoodToUpdate.carbs * event.target.formServing.value) / this.props.selectedFoodToUpdate.servingSize),
-      protein: Math.round((this.props.selectedFoodToUpdate.protein * event.target.formServing.value) / this.props.selectedFoodToUpdate.servingSize),
+      calories: Math.round((this.props.selectedFoodToUpdate.calories / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
+      fats: Math.round((this.props.selectedFoodToUpdate.fats / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
+      carbs: Math.round((this.props.selectedFoodToUpdate.carbs / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
+      protein: Math.round((this.props.selectedFoodToUpdate.protein / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
       amountConsumed: event.target.formServing.value
     }
     this.props.updateFoodFromDB(this.props.selectedFoodToUpdate._id, updatedFood);
