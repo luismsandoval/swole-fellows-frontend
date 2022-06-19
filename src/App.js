@@ -11,7 +11,7 @@ import Footer from './Footer';
 import Dashboard from './Dashboard';
 import Recipes from './Recipes';
 import About from './About';
-import Profile from './Profile';
+import ProfilePage from './Profile';
 
 class App extends React.Component {
 
@@ -34,7 +34,7 @@ class App extends React.Component {
             </Route>
             <Route
               exact path='/profile'
-              element={<Profile />}
+              element={<ProfilePage />}
             >
             </Route>
             <Route
