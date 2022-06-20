@@ -3,22 +3,19 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-class AddFoodModal extends React.Component {
+class ChangeFoodModal extends React.Component {
 
   handleSubmit = (event) => {
 
     event.preventDefault();
-    const newFood = {
-      name: this.props.foodAPI.foodName,
-      calories: Math.round((this.props.foodAPI.calories * event.target.formServing.value) / this.props.foodAPI.servingSize ),
-      servingSize: Math.round(this.props.foodAPI.servingSize),
-      fats: Math.round((this.props.foodAPI.fats * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      carbs: Math.round((this.props.foodAPI.carbs * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      protein: Math.round((this.props.foodAPI.protein * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      image: this.props.foodAPI.image,
+    const updatedFood = {
+      calories: Math.round((this.props.selectedFoodToUpdate.calories / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
+      fats: Math.round((this.props.selectedFoodToUpdate.fats / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
+      carbs: Math.round((this.props.selectedFoodToUpdate.carbs / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
+      protein: Math.round((this.props.selectedFoodToUpdate.protein / this.props.selectedFoodToUpdate.amountConsumed) * event.target.formServing.value),
       amountConsumed: event.target.formServing.value
     }
-    this.props.addFoodtoDB(newFood);
+    this.props.updateFoodFromDB(this.props.selectedFoodToUpdate._id, updatedFood);
     this.props.onHide();
   }
 
@@ -27,12 +24,12 @@ class AddFoodModal extends React.Component {
 
       <Modal show={this.props.show} onHide={this.props.onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Change the mass of food you are eating</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={this.handleSubmit} >
             <Form.Group className="mb-3" controlId="formServing">
-              <Form.Label>Enter the mass of food you are eating</Form.Label>
+              <Form.Label>Update your serving size in Grams!</Form.Label>
               <Form.Control type="name" placeholder="Enter serving size" />
             </Form.Group>
             <Button variant="primary" type="submit">
@@ -51,4 +48,4 @@ class AddFoodModal extends React.Component {
 
 }
 
-export default AddFoodModal;
+export default ChangeFoodModal;
