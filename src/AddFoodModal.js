@@ -2,11 +2,16 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { withAuth0 } from '@auth0/auth0-react';
+
+
 
 class AddFoodModal extends React.Component {
 
   handleSubmit = (event) => {
-
+    
+    // const { user } = useAuth0();
+    // console.log(`user `, user);
     event.preventDefault();
     const newFood = {
       name: this.props.foodAPI.foodName,
@@ -16,8 +21,10 @@ class AddFoodModal extends React.Component {
       carbs: Math.round((this.props.foodAPI.carbs * event.target.formServing.value) / this.props.foodAPI.servingSize),
       protein: Math.round((this.props.foodAPI.protein * event.target.formServing.value) / this.props.foodAPI.servingSize),
       image: this.props.foodAPI.image,
-      amountConsumed: event.target.formServing.value
+      amountConsumed: event.target.formServing.value,
+      // email: user.email
     }
+    console.log(newFood);
     this.props.addFoodtoDB(newFood);
     this.props.onHide();
   }
@@ -51,4 +58,4 @@ class AddFoodModal extends React.Component {
 
 }
 
-export default AddFoodModal;
+export default withAuth0(AddFoodModal);

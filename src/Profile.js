@@ -4,10 +4,10 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ChangeFoodModal from "./ChangeFoodModal";
+import ProfileModal from "./ProfileModal";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
   if (isLoading) {
     return <div>Loading ...</div>;
   }
@@ -27,21 +27,24 @@ class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      foodsDB: "",
-      selectedFoodToUpdate: "",
+      foodsDB: '',
+      selectedFoodToUpdate: '',
+      userInfo: '',
       showModal: false,
+      showProfileModal: false
     };
   }
 
   componentDidMount() {
     this.getFoodsFromDB();
+    // this.getUserInfo();
   }
 
   handleAmountChange = (event) => this.setState({ title: event.target.value });
 
-  handleShowModal = (event) => {
-    this.setState({ showModal: true });
-  };
+  // handleShowModal = (event) => {
+  //   this.setState({ showModal: true });
+  // };
 
   handleHideModal = (event) => {
     this.setState({ showModal: false });
@@ -52,7 +55,6 @@ class ProfilePage extends React.Component {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-        console.log("Token: ", jwt);
 
         const config = {
           headers: { Authorization: `Bearer ${jwt}` },
@@ -109,10 +111,80 @@ class ProfilePage extends React.Component {
     }
   };
 
+  getUserInfo = async () => {
+    try {
+      if (this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+
+        const config = {
+          headers: { Authorization: `Bearer ${jwt}` },
+          method: "get",
+          baseURL: process.env.REACT_APP_SERVER,
+          url: "/profile",
+        };
+        const response = await axios(config);
+        this.setState({ userInfo: response.data });
+      }
+    } catch (error) {
+      console.error('getUserInfo error: ', error);
+    }
+  };
+
+  addUserInfo = async (profileinfo) => {
+    try {
+      if (this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+
+        const config = {
+          headers: { Authorization: `Bearer ${jwt}` },
+          method: "post",
+          baseURL: process.env.REACT_APP_SERVER,
+          url: "/profile",
+          data: profileinfo
+        };
+        await axios(config);
+        this.getUserInfo();
+      }
+    } catch (error) {
+      console.error("addUserInfo error:", error);
+    }
+  };
+
+  updateUserInfo = async (id, updatedUser) => {
+    try {
+      if (this.props.auth0.isAuthenticated) {
+        const res = await this.props.auth0.getIdTokenClaims();
+        const jwt = res.__raw;
+
+        const config = {
+          headers: { Authorization: `Bearer ${jwt}` },
+          method: "put",
+          baseURL: process.env.REACT_APP_SERVER,
+          url: `profile/${id}`,
+          data: updatedUser
+        };
+        await axios(config);
+        this.getUserInfo();
+      }
+    } catch (error) {
+      console.error("updateUserInfo error:", error);
+    }
+  };
+
   render() {
     return (
       <>
         <Profile />
+        <Button
+        variant="primary"
+        onClick={
+          (() => this.setState({showProfileModal: true}))
+        }
+        >
+          Update User Info
+        </Button>
         <h1> this is your diary</h1>
         <Table striped bordered hover>
           <thead>
@@ -128,7 +200,7 @@ class ProfilePage extends React.Component {
           <tbody>
             {Object.entries(this.state.foodsDB).map((obj) => (
               <>
-                <tr>
+                <tr key={obj[1]._id}>
                   <td>{obj[1].name}</td>
                   <td>{obj[1].amountConsumed}</td>
                   <td>{obj[1].calories}</td>
@@ -159,6 +231,12 @@ class ProfilePage extends React.Component {
         onHide = {this.handleHideModal}
         selectedFoodToUpdate = {this.state.selectedFoodToUpdate}
         updateFoodFromDB = {this.updateFoodFromDB}
+        />
+        <ProfileModal
+        show = {this.state.showProfileModal}
+        onHide = {this.handleHideModal}
+        addUserInfo = {this.addUserInfo}
+        updateUserInfo = {this.updateUserInfo}
         />
       </>
     );
