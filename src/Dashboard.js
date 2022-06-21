@@ -103,6 +103,7 @@ class Dashboard extends React.Component {
   };
 
   addMacros = () => {
+    console.log(this.state.foodsDB);
     const protein = Object.entries(this.state.foodsDB)
       .map((value) => {
         return value[1].protein;
@@ -179,7 +180,6 @@ class Dashboard extends React.Component {
   // }
 
   render() {
-    console.log(this.state);
     return (
       <Container>
         <h1>Dashboard</h1>
