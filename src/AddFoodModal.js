@@ -24,6 +24,8 @@ class AddFoodModal extends React.Component {
       protein: Math.round((this.props.foodAPI.protein * event.target.formServing.value) / this.props.foodAPI.servingSize),
       image: this.props.foodAPI.image,
       amountConsumed: event.target.formServing.value,
+      timestamp: new Date(),
+
       // email: user.email
     }
     console.log(newFood);

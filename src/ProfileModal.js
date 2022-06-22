@@ -9,35 +9,41 @@ import './App.css';
 
 
 
+
 class ProfileModal extends React.Component {
 
-  handleProfileSubmit = (event) => {
-    const newProfile = {
-      targetCal: event.target.targetCalories.value,
-      currentWeight: event.target.currentWeight.value,
-      age: event.target.age.value,
-      sex: event.target.sex.value,
-      height: event.target.height.value
-
+    handleProfileSubmit = (event)=>{
+        const newProfile ={
+            targetCal: event.target.targetCalories.value,
+            currentWeight: event.target.currentWeight.value,
+            age: event.target.age.value,
+            sex: event.target.sex.value,
+            height: event.target.height.value
+        }
+        console.log(newProfile)
+        this.props.addUserInfo(newProfile);
+        this.props.onHide();
     }
     this.props.addUserInfo(newProfile);
     this.props.onHide();
-
   }
+
 
   render() {
     return (
       <Container >
-        <Modal show={this.props.show} onHide={this.props.onHide}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body >
-            <Form onSubmit={this.handleprofileSubmit} >
+        
+      <Modal show={this.props.show} onHide={this.props.onHide}>
+        <Modal.Header closeButton>
+          <Modal.Title>Enter your information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={this.handleProfileSubmit} >
 
-              <Form.Group className="mb-3" controlId="targetCalories">
-                <Form.Label>Target Calories: </Form.Label>
-                <Form.Control type="name" placeholder="Enter caloric goal" />
+            <Form.Group className="mb-3" controlId="targetCalories">
+              <Form.Label>Target Calories: {this.props.targetCal}</Form.Label>
+              <Form.Control type="name" placeholder="Enter caloric goal" />
+
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="currentWeight">
