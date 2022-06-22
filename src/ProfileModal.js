@@ -15,8 +15,8 @@ class ProfileModal extends React.Component {
             age: event.target.age.value,
             sex: event.target.sex.value,
             height: event.target.height.value
-
         }
+        console.log(newProfile)
         this.props.addUserInfo(newProfile);
         this.props.onHide();
 
@@ -27,7 +27,7 @@ render() {
 
       <Modal show={this.props.show} onHide={this.props.onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Enter your information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={this.handleProfileSubmit} >

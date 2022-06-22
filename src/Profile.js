@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import ChangeFoodModal from "./ChangeFoodModal";
 import ProfileModal from "./ProfileModal";
+import ProfileTable from "./ProfileTable";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -18,7 +19,6 @@ const Profile = () => {
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-       
       </div>
     )
   );
@@ -26,27 +26,31 @@ const Profile = () => {
 
 class ProfilePage extends React.Component {
   constructor(props) {
+
+
     super(props);
     this.state = {
-      foodsDB: '',
-      selectedFoodToUpdate: '',
-      userInfo: '',
+      foodsDB: "",
+      selectedFoodToUpdate: "",
+      userInfo: "",
       showModal: false,
-      showProfileModal: false
+      showProfileModal: false,
     };
   }
 
-  componentDidMount() {
-    this.getFoodsFromDB();
-    this.getUserInfo();
-    console.log(this.state.userInfo);
-  }
 
   handleAmountChange = (event) => this.setState({ title: event.target.value });
 
-
   handleHideModal = (event) => {
-    this.setState({ showModal: false });
+    this.setState({ 
+      showModal: false
+    });
+  };
+
+  handleHideProfileModal = (event) => {
+    this.setState({ 
+      showModal: false
+    });
   };
 
   getFoodsFromDB = async () => {
@@ -100,7 +104,7 @@ class ProfilePage extends React.Component {
           method: "put",
           baseURL: process.env.REACT_APP_SERVER,
           url: `foodDB/${id}`,
-          data: updatedFood
+          data: updatedFood,
         };
         await axios(config);
         this.getFoodsFromDB();
@@ -111,12 +115,10 @@ class ProfilePage extends React.Component {
   };
 
   getUserInfo = async () => {
-    
     try {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-
         const config = {
           headers: { Authorization: `Bearer ${jwt}` },
           method: "get",
@@ -124,10 +126,10 @@ class ProfilePage extends React.Component {
           url: "/profile",
         };
         const response = await axios(config);
-        this.setState({ userInfo: response.data });
+        this.setState({ userInfo: response.data[response.data.length - 1] });
       }
     } catch (error) {
-      console.error('getUserInfo error: ', error);
+      console.error("getUserInfo error: ", error);
     }
   };
 
@@ -142,7 +144,7 @@ class ProfilePage extends React.Component {
           method: "post",
           baseURL: process.env.REACT_APP_SERVER,
           url: "/profile",
-          data: profileinfo
+          data: profileinfo,
         };
         await axios(config);
         this.getUserInfo();
@@ -152,37 +154,40 @@ class ProfilePage extends React.Component {
     }
   };
 
-  updateUserInfo = async (id, updatedUser) => {
-    try {
-      if (this.props.auth0.isAuthenticated) {
-        const res = await this.props.auth0.getIdTokenClaims();
-        const jwt = res.__raw;
+  // updateUserInfo = async (id, updatedUser) => {
+  //   try {
+  //     if (this.props.auth0.isAuthenticated) {
+  //       const res = await this.props.auth0.getIdTokenClaims();
+  //       const jwt = res.__raw;
 
-        const config = {
-          headers: { Authorization: `Bearer ${jwt}` },
-          method: "put",
-          baseURL: process.env.REACT_APP_SERVER,
-          url: `profile/${id}`,
-          data: updatedUser
-        };
-        await axios(config);
-        this.getUserInfo();
-      }
-    } catch (error) {
-      console.error("updateUserInfo error:", error);
-    }
-  };
+  //       const config = {
+  //         headers: { Authorization: `Bearer ${jwt}` },
+  //         method: "put",
+  //         baseURL: process.env.REACT_APP_SERVER,
+  //         url: `profile/${id}`,
+  //         data: updatedUser,
+  //       };
+  //       await axios(config);
+  //       this.getUserInfo();
+  //     }
+  //   } catch (error) {
+  //     console.error("updateUserInfo error:", error);
+  //   }
+  // };
 
   render() {
+    console.log(this.state);
     return (
-      
       <>
         <Profile />
+        <ProfileTable 
+        userInfo={this.state.userInfo}
+        getFoodsFromDB={this.getFoodsFromDB}
+        getUserInfo={this.getUserInfo}
+         />
         <Button
-        variant="primary"
-        onClick={
-          (() => this.setState({showProfileModal: true}))
-        }
+          variant="primary"
+          onClick={() => this.setState({ showProfileModal: true })}
         >
           Update User Info
         </Button>
@@ -211,8 +216,11 @@ class ProfilePage extends React.Component {
                 </tr>
                 <Button
                   variant="primary"
-                  onClick={
-                    (() => this.setState({ selectedFoodToUpdate: obj[1], showModal: true }))
+                  onClick={() =>
+                    this.setState({
+                      selectedFoodToUpdate: obj[1],
+                      showModal: true,
+                    })
                   }
                 >
                   Change
@@ -227,17 +235,17 @@ class ProfilePage extends React.Component {
             ))}
           </tbody>
         </Table>
-        <ChangeFoodModal 
-        show = {this.state.showModal}
-        onHide = {this.handleHideModal}
-        selectedFoodToUpdate = {this.state.selectedFoodToUpdate}
-        updateFoodFromDB = {this.updateFoodFromDB}
+        <ChangeFoodModal
+          show={this.state.showModal}
+          onHide={this.handleHideModal}
+          selectedFoodToUpdate={this.state.selectedFoodToUpdate}
+          updateFoodFromDB={this.updateFoodFromDB}
         />
         <ProfileModal
-        show = {this.state.showProfileModal}
-        onHide = {this.handleHideModal}
-        addUserInfo = {this.addUserInfo}
-        updateUserInfo = {this.updateUserInfo}
+          show={this.state.showProfileModal}
+          onHide={this.handleHideProfileModal}
+          addUserInfo={this.addUserInfo}
+          updateUserInfo={this.updateUserInfo}
         />
       </>
     );
