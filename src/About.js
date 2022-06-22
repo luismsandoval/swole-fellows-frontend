@@ -12,7 +12,7 @@ class Profile extends Component {
           <Card.Img src=''/>
           <Card.Body>
             <Card.Header>Jim Doyle</Card.Header>
-            <Card.Text>I like to code</Card.Text>
+            <Card.Text>I really like to code</Card.Text>
           </Card.Body>
         </Card>
         <Card bg={'light'} border={'primary'} className='text-center mb-2' style={{ width: '18rem'}}>
