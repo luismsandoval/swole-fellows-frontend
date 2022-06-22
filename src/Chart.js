@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import Chart from "chart.js/auto";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut, Bar } from "react-chartjs-2";
 import { Carousel } from "react-bootstrap";
 
 class Charts extends React.Component {
@@ -44,7 +44,7 @@ class Charts extends React.Component {
                     ],
                     borderColor: [
                       "rgba(255, 99, 132, 1)",
-                      "rgba(54, 162, 235, 1)"
+                      "rgba(54, 162, 235, 1)",
                     ],
                     borderWidth: 1,
                   },
@@ -83,9 +83,48 @@ class Charts extends React.Component {
                     borderColor: [
                       "rgba(255, 99, 132, 1)",
                       "rgba(255, 206, 86, 1)",
-                      "rgba(54, 162, 235, 1)"
+                      "rgba(54, 162, 235, 1)",
                     ],
                     borderWidth: 1,
+                  },
+                ],
+              }}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <Bar
+              options = {{
+                responsive: true,
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                  title: {
+                    display: true,
+                    text: 'Weight Diary',
+                  },
+                },
+              }}
+              data={{
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [
+                  {
+                    label: 'Weight',
+                    data: [
+                      215,
+                      210,
+                      205,
+                      200,
+                      195,
+                      190,
+                      185,
+                      180,
+                      175,
+                      178,
+                      180,
+                      177
+                    ],
+                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
                   },
                 ],
               }}
