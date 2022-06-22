@@ -18,6 +18,7 @@ const Profile = () => {
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
+       
       </div>
     )
   );
@@ -37,14 +38,12 @@ class ProfilePage extends React.Component {
 
   componentDidMount() {
     this.getFoodsFromDB();
-    // this.getUserInfo();
+    this.getUserInfo();
+    console.log(this.state.userInfo);
   }
 
   handleAmountChange = (event) => this.setState({ title: event.target.value });
 
-  // handleShowModal = (event) => {
-  //   this.setState({ showModal: true });
-  // };
 
   handleHideModal = (event) => {
     this.setState({ showModal: false });
@@ -112,6 +111,7 @@ class ProfilePage extends React.Component {
   };
 
   getUserInfo = async () => {
+    
     try {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
@@ -175,6 +175,7 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
+      
       <>
         <Profile />
         <Button

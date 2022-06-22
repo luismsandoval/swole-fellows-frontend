@@ -30,10 +30,10 @@ render() {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={this.handleprofileSubmit} >
+          <Form onSubmit={this.handleProfileSubmit} >
 
             <Form.Group className="mb-3" controlId="targetCalories">
-              <Form.Label>Target Calories: </Form.Label>
+              <Form.Label>Target Calories: {this.props.targetCal}</Form.Label>
               <Form.Control type="name" placeholder="Enter caloric goal" />
               </Form.Group>
 
