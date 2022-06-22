@@ -7,25 +7,25 @@ class Profile extends Component {
   render() {
 
     return (
-      <Container>
-        <Card bg={'light'} border={'primary'} className='text-center mb-2' style={{ width: '18rem'}}>
-          <Card.Img src=''/>
+      <Container >
+        <Card id="aboutCard">
+          <Card.Img src='' />
           <Card.Body>
-            <Card.Header>Jim Doyle</Card.Header>
+            <Card.Header id="name">Jim Doyle</Card.Header>
             <Card.Text>I like to code</Card.Text>
           </Card.Body>
         </Card>
-        <Card bg={'light'} border={'primary'} className='text-center mb-2' style={{ width: '18rem'}}>
-          <Card.Img src=''/>
+        <Card id="aboutCard">
+          <Card.Img src='' />
           <Card.Body>
-            <Card.Header>Luis Sandoval</Card.Header>
+            <Card.Header id="name">Luis Sandoval</Card.Header>
             <Card.Text>I like to code.</Card.Text>
           </Card.Body>
         </Card>
-        <Card bg={'light'} border={'primary'} className='text-center mb-2' style={{ width: '18rem'}}>
-          <Card.Img src=''/>
+        <Card id="aboutCard">
+          <Card.Img src='' />
           <Card.Body>
-            <Card.Header>Justin Mathieu</Card.Header>
+            <Card.Header id="name">Justin Mathieu</Card.Header>
             <Card.Text>I like to code.</Card.Text>
           </Card.Body>
         </Card>
