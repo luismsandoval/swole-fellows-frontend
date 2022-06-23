@@ -38,7 +38,7 @@ class Charts extends React.Component {
                     label: "# of Votes",
                     data: [
                       this.props.macros.calories,
-                      this.state.caloricGoal - this.props.macros.calories,
+                      this.state.caloricGoal - this.props.macros.calories < 0 ? 0 : this.state.caloricGoal - this.props.macros.calories,
                     ],
                     backgroundColor: [
                       "rgba(255, 99, 132, 0.7)",
