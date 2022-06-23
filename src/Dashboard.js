@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
       foodsAPI: "",
       showModal: false,
       macros: "",
-      selectedFood: ''
+      selectedFood: "",
     };
   }
 
@@ -35,12 +35,11 @@ class Dashboard extends React.Component {
   };
 
   handleShowModal = (value) => {
-    console.log('value: ', value)
-    this.setState({ 
+    console.log("value: ", value);
+    this.setState({
       showModal: true,
-      selectedFood: value
-     });
-    //  console.log(this.state.selectedFood);
+      selectedFood: value,
+    });
   };
 
   handleHideModal = (event) => {
@@ -146,102 +145,61 @@ class Dashboard extends React.Component {
     });
   };
 
-  // deleteFoodFromDB = async (id) => {
-  //   try {
-  //     if (this.props.auth0.isAuthenticated) {
-  //       const res = await this.props.auth0.getIdTokenClaims();
-  //       const jwt = res.__raw;
-
-  //       const config = {
-  //         headers: { "Authorization": `Bearer ${jwt}` },
-  //         method: 'delete',
-  //         baseURL: process.env.REACT_APP_SERVER,
-  //         url: `foodDB/${id}`
-  //       }
-  //       await axios(config);
-  //       this.getFoodsFromDB();
-  //     }
-  //   } catch (error) {
-  //     console.error('DeleteFoodFromDB error:', error)
-  //   }
-  // }
-
-  // updateFoodFromDB = async (id) => {
-  //   try {
-  //     if (this.props.auth0.isAuthenticated) {
-  //       const res = await this.props.auth0.getIdTokenClaims();
-  //       const jwt = res.__raw;
-
-  //       const config = {
-  //         headers: { "Authorization": `Bearer ${jwt}` },
-  //         method: 'put',
-  //         baseURL: process.env.REACT_APP_SERVER,
-  //         url: `foodDB/${id}`,
-
-  //       }
-  //       await axios(config);
-  //       this.getFoodsFromDB();
-  //     }
-  //   } catch (error) {
-  //     console.error('updateFoodToDB error:', error)
-  //   }
-  // }
-
   render() {
-    
     return (
       <Container className="dashboard">
         <h1>Dashboard</h1>
 
-        {this.state.macros && 
-        <Charts
-          className="chart"
-          foodsDB={this.state.foodsDB}
-          macros={this.state.macros}
-        />
-  }
+        {this.state.macros && (
+          <Charts
+            className="chart"
+            foodsDB={this.state.foodsDB}
+            macros={this.state.macros}
+            currentWeight={this.props.currentWeight}
+            targetCalories={this.props.targetCalories}
+          />
+        )}
 
         <Form onSubmit={this.getFoods} onChange={this.foodSearch}>
           <Form.Control type="name" placeholder="Search for foods!" />
         </Form>
         <Row xs={1} md={2} className="g-4">
-        {this.state.foodsAPI &&
-          this.state.foodsAPI.map((value) => {
-            // console.log(value);
-            return (
-              <Card id="card">
-                <Card.Img variant="top" src={value.image} />
-                <Card.Body>
-                  <Card.Title>{value.foodName}</Card.Title>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroup.Item>
-                    Calories {Math.round(value.calories)}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    Carbs {Math.round(value.carbs)}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    Fats {Math.round(value.fats)}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    Protein {Math.round(value.protein)}
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    Serving Size {Math.round(value.servingSize)}
-                  </ListGroup.Item>
-                  <Button
-                    variant="primary"
-                    onClick={() => this.handleShowModal(value)}
-                    id="selectButton"
-                  >
-                    Select Food
-                  </Button>{" "}
-                </ListGroup>
-              </Card>
-            );
-          })}
-          </Row>
+          {this.state.foodsAPI &&
+            this.state.foodsAPI.map((value) => {
+              return (
+                <Card id="card">
+                  <Card.Img variant="top" src={value.image} />
+                  <Card.Body>
+                    <Card.Title>{value.foodName}</Card.Title>
+                  </Card.Body>
+                  <ListGroup className="list-group-flush">
+                    <ListGroup.Item>
+                      Calories {Math.round(value.calories)}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      Carbs {Math.round(value.carbs)}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      Fats {Math.round(value.fats)}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      Protein {Math.round(value.protein)}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      Serving Size {Math.round(value.servingSize)}
+                    </ListGroup.Item>
+                    <Button
+                      variant="primary"
+                      onClick={() => this.handleShowModal(value)}
+                      id="selectButton"
+                    >
+                      Select Food
+                    </Button>{" "}
+                  </ListGroup>
+                </Card>
+              );
+            })}
+        </Row>
         <AddFoodModal
           foodAPI={this.state.foodsAPI}
           show={this.state.showModal}
@@ -249,7 +207,6 @@ class Dashboard extends React.Component {
           addFoodtoDB={this.addFoodtoDB}
           selectedFood={this.state.selectedFood}
         />
-      
       </Container>
     );
   }

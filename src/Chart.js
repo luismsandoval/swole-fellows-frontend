@@ -3,8 +3,7 @@ import { Container } from "react-bootstrap";
 import Chart from "chart.js/auto";
 import { Doughnut, Bar } from "react-chartjs-2";
 import { Carousel } from "react-bootstrap";
-import './App.css';
-
+import "./App.css";
 
 class Charts extends React.Component {
   constructor(props) {
@@ -38,7 +37,10 @@ class Charts extends React.Component {
                     label: "# of Votes",
                     data: [
                       this.props.macros.calories,
-                      this.state.caloricGoal - this.props.macros.calories < 0 ? 0 : this.state.caloricGoal - this.props.macros.calories,
+                      this.props.targetCalories - this.props.macros.calories < 0
+                        ? 0
+                        : this.props.targetCalories -
+                          this.props.macros.calories,
                     ],
                     backgroundColor: [
                       "rgba(255, 99, 132, 0.7)",
@@ -95,38 +97,27 @@ class Charts extends React.Component {
           </Carousel.Item>
           <Carousel.Item>
             <Bar
-              options = {{
+              options={{
                 responsive: true,
                 plugins: {
                   legend: {
-                    position: 'top',
+                    position: "top",
                   },
                   title: {
                     display: true,
-                    text: 'Weight Diary',
+                    text: "Weight Diary",
                   },
                 },
               }}
               data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: this.props.currentWeight.map(
+                  (value) => value.timestamp
+                ),
                 datasets: [
                   {
-                    label: 'Weight',
-                    data: [
-                      215,
-                      210,
-                      205,
-                      200,
-                      195,
-                      190,
-                      185,
-                      180,
-                      175,
-                      178,
-                      180,
-                      177
-                    ],
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    label: "Weight",
+                    data: this.props.currentWeight.map((value) => value.weight),
+                    backgroundColor: "rgba(255, 99, 132, 0.5)",
                   },
                 ],
               }}
