@@ -49,7 +49,7 @@ class ProfilePage extends React.Component {
 
   handleHideProfileModal = (event) => {
     this.setState({ 
-      showModal: false
+      showProfileModal: false
     });
   };
 
@@ -178,6 +178,7 @@ class ProfilePage extends React.Component {
   render() {
     console.log(this.state);
     return (
+      
       <>
         <Profile />
         <ProfileTable 
@@ -253,6 +254,7 @@ class ProfilePage extends React.Component {
 
           addUserInfo={this.addUserInfo}
           updateUserInfo={this.updateUserInfo}
+          
         />
       </>
     );

@@ -10,9 +10,11 @@ import './App.css';
 
 
 
+
 class ProfileModal extends React.Component {
 
     handleProfileSubmit = (event)=>{
+        event.preventDefault();
         const newProfile ={
             targetCal: event.target.targetCalories.value,
             currentWeight: event.target.currentWeight.value,
@@ -67,6 +69,7 @@ class ProfileModal extends React.Component {
                 <Form.Label>Height: </Form.Label>
                 <Form.Control type="name" placeholder="Enter serving size" />
               </Form.Group>
+
 
 
               <Button variant="primary" type="submit">
