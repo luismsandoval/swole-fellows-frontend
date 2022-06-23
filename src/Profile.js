@@ -15,9 +15,9 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
+      <div id="profile">
+        <img src={user.picture} alt={user.name} id="profileImg" />
+        <h2 id="userName">{user.name}</h2>
         <p>{user.email}</p>
       </div>
     )
@@ -186,13 +186,16 @@ class ProfilePage extends React.Component {
         getUserInfo={this.getUserInfo}
          />
         <Button
+
+          id="profileButton"
+          
           variant="primary"
           onClick={() => this.setState({ showProfileModal: true })}
         >
-          Update User Info
+          Update Info
         </Button>
-        <h1> this is your diary</h1>
-        <Table striped bordered hover>
+        <h1 id="tableHead"> This is Your Diary</h1>
+        <Table striped bordered hover id="table">
           <thead>
             <tr>
               <th>Item</th>
@@ -215,6 +218,7 @@ class ProfilePage extends React.Component {
                   <td>{obj[1].fats}</td>
                 </tr>
                 <Button
+                  id="changeButton"
                   variant="primary"
                   onClick={() =>
                     this.setState({
@@ -226,6 +230,7 @@ class ProfilePage extends React.Component {
                   Change
                 </Button>
                 <Button
+                  id="deleteButton"
                   variant="danger"
                   onClick={() => this.deleteFoodFromDB(obj[1]._id)}
                 >
@@ -243,7 +248,9 @@ class ProfilePage extends React.Component {
         />
         <ProfileModal
           show={this.state.showProfileModal}
+
           onHide={this.handleHideProfileModal}
+
           addUserInfo={this.addUserInfo}
           updateUserInfo={this.updateUserInfo}
         />
