@@ -8,8 +8,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import AddFoodModal from "./AddFoodModal";
 import Charts from "./Chart";
-import './App.css';
-
+import Row from "react-bootstrap/Row";
+import "./App.css";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -135,7 +135,7 @@ class Dashboard extends React.Component {
         protein: protein,
         carbs: carbs,
         fats: fats,
-        calories: calories
+        calories: calories,
       },
     });
   };
@@ -186,44 +186,61 @@ class Dashboard extends React.Component {
       <Container className="dashboard">
         <h1>Dashboard</h1>
 
+        {this.state.macros && 
+        <Charts
+          className="chart"
+          foodsDB={this.state.foodsDB}
+          macros={this.state.macros}
+        />
+  }
+
         <Form onSubmit={this.getFoods} onChange={this.foodSearch}>
           <Form.Control type="name" placeholder="Search for foods!" />
         </Form>
-        {this.state.foodsAPI && (
-          <Card id="card" >
-            <Card.Img variant="top" src={this.state.foodsAPI.image} />
-            <Card.Body>
-              <Card.Title>{this.state.foodsAPI.foodName}</Card.Title>
-            </Card.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroup.Item>
-                Calories {Math.round(this.state.foodsAPI.calories)}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Carbs {Math.round(this.state.foodsAPI.carbs)}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Fats {Math.round(this.state.foodsAPI.fats)}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Protein {Math.round(this.state.foodsAPI.protein)}
-              </ListGroup.Item>
-              <ListGroup.Item>
-                Serving Size {Math.round(this.state.foodsAPI.servingSize)}
-              </ListGroup.Item>
-              <Button variant="primary" onClick={this.handleShowModal} id="selectButton">
-                Select Food
-              </Button>{" "}
-            </ListGroup>
-          </Card>
-        )}
+        <Row xs={1} md={2} className="g-4">
+        {this.state.foodsAPI &&
+          this.state.foodsAPI.map((value) => {
+            return (
+              <Card id="card">
+                <Card.Img variant="top" src={value.image} />
+                <Card.Body>
+                  <Card.Title>{value.foodName}</Card.Title>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroup.Item>
+                    Calories {Math.round(value.calories)}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    Carbs {Math.round(value.carbs)}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    Fats {Math.round(value.fats)}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    Protein {Math.round(value.protein)}
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    Serving Size {Math.round(value.servingSize)}
+                  </ListGroup.Item>
+                  <Button
+                    variant="primary"
+                    onClick={this.handleShowModal}
+                    id="selectButton"
+                  >
+                    Select Food
+                  </Button>{" "}
+                </ListGroup>
+              </Card>
+            );
+          })}
+          </Row>
         <AddFoodModal
           foodAPI={this.state.foodsAPI}
           show={this.state.showModal}
           onHide={this.handleHideModal}
           addFoodtoDB={this.addFoodtoDB}
         />
-        <Charts className="chart" foodsDB={this.state.foodsDB} macros={this.state.macros} />
+      
       </Container>
     );
   }
