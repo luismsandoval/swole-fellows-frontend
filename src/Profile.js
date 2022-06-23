@@ -127,7 +127,7 @@ class ProfilePage extends React.Component {
           url: "/profile",
         };
         const response = await axios(config);
-        this.setState({ userInfo: response.data[response.data.length - 1] });
+        this.setState({ userInfo: response.data[response.data.length - 1], allUserInfo: response.data });
       }
     } catch (error) {
       console.error("getUserInfo error: ", error);
@@ -155,29 +155,8 @@ class ProfilePage extends React.Component {
     }
   };
 
-  // updateUserInfo = async (id, updatedUser) => {
-  //   try {
-  //     if (this.props.auth0.isAuthenticated) {
-  //       const res = await this.props.auth0.getIdTokenClaims();
-  //       const jwt = res.__raw;
-
-  //       const config = {
-  //         headers: { Authorization: `Bearer ${jwt}` },
-  //         method: "put",
-  //         baseURL: process.env.REACT_APP_SERVER,
-  //         url: `profile/${id}`,
-  //         data: updatedUser,
-  //       };
-  //       await axios(config);
-  //       this.getUserInfo();
-  //     }
-  //   } catch (error) {
-  //     console.error("updateUserInfo error:", error);
-  //   }
-  // };
 
   render() {
-    console.log(this.state);
     return (
 
       <>
@@ -258,7 +237,6 @@ class ProfilePage extends React.Component {
 
           addUserInfo={this.addUserInfo}
           updateUserInfo={this.updateUserInfo}
-
         />
       </>
     );
