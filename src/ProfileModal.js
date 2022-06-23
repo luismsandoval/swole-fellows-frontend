@@ -26,9 +26,9 @@ class ProfileModal extends React.Component {
         this.props.addUserInfo(newProfile);
         this.props.onHide();
     }
-    this.props.addUserInfo(newProfile);
-    this.props.onHide();
-  }
+  //   this.props.addUserInfo(newProfile);
+  //   this.props.onHide();
+  // }
 
 
   render() {
