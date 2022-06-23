@@ -6,9 +6,11 @@ import { withAuth0, useAuth0 } from '@auth0/auth0-react';
 
 
 
+
 class ProfileModal extends React.Component {
 
     handleProfileSubmit = (event)=>{
+        event.preventDefault();
         const newProfile ={
             targetCal: event.target.targetCalories.value,
             currentWeight: event.target.currentWeight.value,
@@ -60,7 +62,10 @@ render() {
               </Form.Group>
              
             
-            <Button variant="primary" type="submit">
+            <Button 
+            variant="primary" 
+            type="submit"
+            >
               Submit
             </Button>
           </Form>
