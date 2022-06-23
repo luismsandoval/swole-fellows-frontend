@@ -16,13 +16,13 @@ class AddFoodModal extends React.Component {
     // console.log(`user `, user);
     event.preventDefault();
     const newFood = {
-      name: this.props.foodAPI.foodName,
-      calories: Math.round((this.props.foodAPI.calories * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      servingSize: Math.round(this.props.foodAPI.servingSize),
-      fats: Math.round((this.props.foodAPI.fats * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      carbs: Math.round((this.props.foodAPI.carbs * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      protein: Math.round((this.props.foodAPI.protein * event.target.formServing.value) / this.props.foodAPI.servingSize),
-      image: this.props.foodAPI.image,
+      name: this.props.selectedFood.foodName,
+      calories: Math.round((this.props.selectedFood.calories * event.target.formServing.value) / this.props.selectedFood.servingSize),
+      servingSize: Math.round(this.props.selectedFood.servingSize),
+      fats: Math.round((this.props.selectedFood.fats * event.target.formServing.value) / this.props.selectedFood.servingSize),
+      carbs: Math.round((this.props.selectedFood.carbs * event.target.formServing.value) / this.props.selectedFood.servingSize),
+      protein: Math.round((this.props.selectedFood.protein * event.target.formServing.value) / this.props.selectedFood.servingSize),
+      image: this.props.selectedFood.image,
       amountConsumed: event.target.formServing.value,
       timestamp: new Date(),
 

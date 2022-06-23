@@ -21,6 +21,7 @@ class Dashboard extends React.Component {
       foodsAPI: "",
       showModal: false,
       macros: "",
+      selectedFood: ''
     };
   }
 
@@ -33,8 +34,13 @@ class Dashboard extends React.Component {
     this.setState({ searchQuery: event.target.value });
   };
 
-  handleShowModal = (event) => {
-    this.setState({ showModal: true });
+  handleShowModal = (value) => {
+    console.log('value: ', value)
+    this.setState({ 
+      showModal: true,
+      selectedFood: value
+     });
+    //  console.log(this.state.selectedFood);
   };
 
   handleHideModal = (event) => {
@@ -182,6 +188,7 @@ class Dashboard extends React.Component {
   // }
 
   render() {
+    
     return (
       <Container className="dashboard">
         <h1>Dashboard</h1>
@@ -200,6 +207,7 @@ class Dashboard extends React.Component {
         <Row xs={1} md={2} className="g-4">
         {this.state.foodsAPI &&
           this.state.foodsAPI.map((value) => {
+            // console.log(value);
             return (
               <Card id="card">
                 <Card.Img variant="top" src={value.image} />
@@ -224,7 +232,7 @@ class Dashboard extends React.Component {
                   </ListGroup.Item>
                   <Button
                     variant="primary"
-                    onClick={this.handleShowModal}
+                    onClick={() => this.handleShowModal(value)}
                     id="selectButton"
                   >
                     Select Food
@@ -239,6 +247,7 @@ class Dashboard extends React.Component {
           show={this.state.showModal}
           onHide={this.handleHideModal}
           addFoodtoDB={this.addFoodtoDB}
+          selectedFood={this.state.selectedFood}
         />
       
       </Container>
