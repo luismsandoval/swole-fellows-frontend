@@ -3,19 +3,21 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { withAuth0 } from '@auth0/auth0-react';
+import './App.css';
+
 
 
 
 class AddFoodModal extends React.Component {
 
   handleSubmit = (event) => {
-    
+
     // const { user } = useAuth0();
     // console.log(`user `, user);
     event.preventDefault();
     const newFood = {
       name: this.props.foodAPI.foodName,
-      calories: Math.round((this.props.foodAPI.calories * event.target.formServing.value) / this.props.foodAPI.servingSize ),
+      calories: Math.round((this.props.foodAPI.calories * event.target.formServing.value) / this.props.foodAPI.servingSize),
       servingSize: Math.round(this.props.foodAPI.servingSize),
       fats: Math.round((this.props.foodAPI.fats * event.target.formServing.value) / this.props.foodAPI.servingSize),
       carbs: Math.round((this.props.foodAPI.carbs * event.target.formServing.value) / this.props.foodAPI.servingSize),
@@ -34,7 +36,7 @@ class AddFoodModal extends React.Component {
   render() {
     return (
 
-      <Modal show={this.props.show} onHide={this.props.onHide}>
+      <Modal show={this.props.show} onHide={this.props.onHide} >
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>

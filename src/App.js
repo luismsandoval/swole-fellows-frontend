@@ -21,8 +21,9 @@ class App extends React.Component {
 
         <Router>
           <Header />
-          <Routes>
+          <Routes >
             <Route
+              id="route"
               exact path="/"
               element={<Dashboard />}
             >

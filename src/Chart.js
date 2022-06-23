@@ -3,6 +3,8 @@ import { Container } from "react-bootstrap";
 import Chart from "chart.js/auto";
 import { Doughnut, Bar } from "react-chartjs-2";
 import { Carousel } from "react-bootstrap";
+import './App.css';
+
 
 class Charts extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class Charts extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{ width: "40%" }}>
         <Carousel>
           <Carousel.Item>
             <Doughnut

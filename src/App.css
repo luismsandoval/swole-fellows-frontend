@@ -1,38 +1,114 @@
-.App {
+.dashboard {
+  /* background-color: #99D0F2; */
+  padding: 50px;
+}
+
+.chart {
+  width: 50%;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #D9043D;
+  text-decoration: none;
+  color: black
+}
+
+#card {
+  width: 20rem;
+  background-color: #4878D9;
+  margin-top: 1rem;
+}
+
+#selectButton {
+  margin: auto;
+  color: black;
+  background-color: #D9043D;
+  width: 10rem;
+  border-radius: 10px;
+
+}
+
+#logout,
+#login {
+  border-radius: 10px;
+  background-color: #4878D9;
+  width: 5rem;
+}
+
+#profileButton {
+  border-radius: 20px;
+  background-color: #4878D9;
+  width: 7rem;
+  font-size: x-small;
+}
+
+#profile {
+  border-radius: 30px;
+  font-size: small;
+  width: 10rem;
+  margin: 10px;
+
+}
+
+#profileImg {
+  align-items: center;
+  width: 4rem;
+  border-radius: 30px;
+}
+
+#userName {
+  font-size: medium;
+}
+
+#table {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+  border: #4878D9;
+}
+
+#changeButton {
+  float: right;
+  background-color: #4878D9;
+  width: 5rem;
+  border-radius: 20px;
+}
+
+#deleteButton {
+  background-color: #D9043D;
+  width: 5rem;
+  border-radius: 20px;
+}
+
+#tableHead {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+#aboutCard {
+  border: 1px solid #4878D9;
+  margin: auto;
+  width: 50%;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#name {
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+#footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background-color: #D9043D;
 }

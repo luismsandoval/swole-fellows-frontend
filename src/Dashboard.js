@@ -8,6 +8,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import AddFoodModal from "./AddFoodModal";
 import Charts from "./Chart";
+import './App.css';
+
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -181,15 +183,14 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container className="dashboard">
         <h1>Dashboard</h1>
-        <p>this is a dashboard test</p>
 
         <Form onSubmit={this.getFoods} onChange={this.foodSearch}>
           <Form.Control type="name" placeholder="Search for foods!" />
         </Form>
         {this.state.foodsAPI && (
-          <Card style={{ width: "18rem" }}>
+          <Card id="card" >
             <Card.Img variant="top" src={this.state.foodsAPI.image} />
             <Card.Body>
               <Card.Title>{this.state.foodsAPI.foodName}</Card.Title>
@@ -210,7 +211,7 @@ class Dashboard extends React.Component {
               <ListGroup.Item>
                 Serving Size {Math.round(this.state.foodsAPI.servingSize)}
               </ListGroup.Item>
-              <Button variant="primary" onClick={this.handleShowModal}>
+              <Button variant="primary" onClick={this.handleShowModal} id="selectButton">
                 Select Food
               </Button>{" "}
             </ListGroup>
@@ -222,7 +223,7 @@ class Dashboard extends React.Component {
           onHide={this.handleHideModal}
           addFoodtoDB={this.addFoodtoDB}
         />
-        <Charts foodsDB={this.state.foodsDB} macros={this.state.macros} />
+        <Charts className="chart" foodsDB={this.state.foodsDB} macros={this.state.macros} />
       </Container>
     );
   }
