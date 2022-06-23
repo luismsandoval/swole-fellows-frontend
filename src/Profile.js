@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import ChangeFoodModal from "./ChangeFoodModal";
 import ProfileModal from "./ProfileModal";
 import ProfileTable from "./ProfileTable";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -42,13 +43,13 @@ class ProfilePage extends React.Component {
   handleAmountChange = (event) => this.setState({ title: event.target.value });
 
   handleHideModal = (event) => {
-    this.setState({ 
+    this.setState({
       showModal: false
     });
   };
 
   handleHideProfileModal = (event) => {
-    this.setState({ 
+    this.setState({
       showProfileModal: false
     });
   };
@@ -178,18 +179,18 @@ class ProfilePage extends React.Component {
   render() {
     console.log(this.state);
     return (
-      
+
       <>
         <Profile />
-        <ProfileTable 
-        userInfo={this.state.userInfo}
-        getFoodsFromDB={this.getFoodsFromDB}
-        getUserInfo={this.getUserInfo}
-         />
+        <ProfileTable
+          userInfo={this.state.userInfo}
+          getFoodsFromDB={this.getFoodsFromDB}
+          getUserInfo={this.getUserInfo}
+        />
         <Button
 
           id="profileButton"
-          
+
           variant="primary"
           onClick={() => this.setState({ showProfileModal: true })}
         >
@@ -205,6 +206,7 @@ class ProfilePage extends React.Component {
               <th>Carbs {"g"}</th>
               <th>Protein {"g"}</th>
               <th>Fat {"g"}</th>
+              <th>Make Changes</th>
             </tr>
           </thead>
           <tbody>
@@ -217,26 +219,28 @@ class ProfilePage extends React.Component {
                   <td>{obj[1].carbs}</td>
                   <td>{obj[1].protein}</td>
                   <td>{obj[1].fats}</td>
+                  <td>
+                  <Dropdown>
+                  <Dropdown.Toggle variant="Danger" id="dropdown-basic">
+                    Edit
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item id="changeButton"
+                      variant="primary"
+                      onClick={() =>
+                        this.setState({
+                          selectedFoodToUpdate: obj[1],
+                          showModal: true,
+                        })
+                      }>Change</Dropdown.Item>
+                    <Dropdown.Item id="deleteButton"
+                      variant="danger"
+                      onClick={() => this.deleteFoodFromDB(obj[1]._id)}>Delete</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                  </td>
                 </tr>
-                <Button
-                  id="changeButton"
-                  variant="primary"
-                  onClick={() =>
-                    this.setState({
-                      selectedFoodToUpdate: obj[1],
-                      showModal: true,
-                    })
-                  }
-                >
-                  Change
-                </Button>
-                <Button
-                  id="deleteButton"
-                  variant="danger"
-                  onClick={() => this.deleteFoodFromDB(obj[1]._id)}
-                >
-                  Delete
-                </Button>
               </>
             ))}
           </tbody>
@@ -254,7 +258,7 @@ class ProfilePage extends React.Component {
 
           addUserInfo={this.addUserInfo}
           updateUserInfo={this.updateUserInfo}
-          
+
         />
       </>
     );

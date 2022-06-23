@@ -50,24 +50,24 @@ class ProfileModal extends React.Component {
 
               <Form.Group className="mb-3" controlId="currentWeight">
                 <Form.Label>Current Weight: </Form.Label>
-                <Form.Control type="name" placeholder="Enter serving size" />
+                <Form.Control type="name" placeholder="Enter your current Weight" />
               </Form.Group>
 
 
               <Form.Group className="mb-3" controlId="age">
                 <Form.Label>Age: </Form.Label>
-                <Form.Control type="name" placeholder="Enter serving size" />
+                <Form.Control type="name" placeholder="Enter your age" />
               </Form.Group>
 
 
               <Form.Group className="mb-3" controlId="sex">
                 <Form.Label>Sex: </Form.Label>
-                <Form.Control type="name" placeholder="Enter serving size" />
+                <Form.Control type="name" placeholder="Enter your sex" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="height">
                 <Form.Label>Height: </Form.Label>
-                <Form.Control type="name" placeholder="Enter serving size" />
+                <Form.Control type="name" placeholder="Enter your height" />
               </Form.Group>
 
 
