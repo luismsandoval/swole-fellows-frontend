@@ -159,7 +159,7 @@ class Dashboard extends React.Component {
           />
         )}
 
-        <Form onSubmit={this.getFoods} onChange={this.foodSearch}>
+        <Form onSubmit={this.getFoods} onChange={this.foodSearch} id="searchForm">
           <Form.Control type="name" placeholder="Search for foods!" />
         </Form>
         <Row xs={1} md={2} className="g-4">
@@ -176,16 +176,16 @@ class Dashboard extends React.Component {
                       Calories {Math.round(value.calories)}
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      Carbs {Math.round(value.carbs)}
+                      Carbs {Math.round(value.carbs)} g
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      Fats {Math.round(value.fats)}
+                      Fats {Math.round(value.fats)} g
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      Protein {Math.round(value.protein)}
+                      Protein {Math.round(value.protein)} g
                     </ListGroup.Item>
                     <ListGroup.Item>
-                      Serving Size {Math.round(value.servingSize)}
+                      Serving Size {Math.round(value.servingSize)} g
                     </ListGroup.Item>
                     <Button
                       variant="primary"

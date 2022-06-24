@@ -9,8 +9,7 @@ class ProfileTable extends React.Component {
   }
   render() {
     return (
-      <Container>
-        <h1>ProfileTable</h1>
+      <Container id="profileTable">
         <Table striped bordered hover>
           <tbody>
             <tr>

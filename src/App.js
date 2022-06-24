@@ -5,11 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Dashboard from "./Dashboard";
-import Recipes from "./Recipes";
 import About from "./About";
 import ProfilePage from "./Profile";
-import axios from "axios";
 import { withAuth0 } from "@auth0/auth0-react";
+import Container from "react-bootstrap/Container";
 
 
 class App extends React.Component {
@@ -21,11 +20,6 @@ class App extends React.Component {
       allUserInfo: ""
     };
   }
-
-  // componentDidMount() {
-  //   this.getUserInfo();
-  //   this.state.allUserInfo && this.getWeightData();
-  // }
 
   getWeightData = (data) => {
     const weightData = data.map(value => {
@@ -39,32 +33,6 @@ class App extends React.Component {
       targetCalories: cal,
     });
   }
-
-  // getStats = (weight, calories) => {
-  //   this.setState({
-  //     currentWeight: weight,
-  //     targetCalories: calories,
-  //   });
-  // };
-
-  // getUserInfo = async () => {
-  //   try {
-  //     if (this.props.auth0.isAuthenticated) {
-  //       const res = await this.props.auth0.getIdTokenClaims();
-  //       const jwt = res.__raw;
-  //       const config = {
-  //         headers: { Authorization: `Bearer ${jwt}` },
-  //         method: "get",
-  //         baseURL: process.env.REACT_APP_SERVER,
-  //         url: "/profile",
-  //       };
-  //       const response = await axios(config);
-  //       this.setState({ allUserInfo: response.data }, this.getWeightData(response.data));
-  //     }
-  //   } catch (error) {
-  //     console.error("getUserInfo error: ", error);
-  //   }
-  // };
 
   render() {
     return (

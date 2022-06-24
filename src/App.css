@@ -1,26 +1,26 @@
-.dashboard {
-  /* background-color: #99D0F2; */
-  padding: 50px;
+#root, html{
+  background-color: #FFFBEA;
 }
+
+
+
 
 .chart {
   width: 50%;
 }
 
-.navbar {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
+.navBar {
   background-color: #D9043D;
   text-decoration: none;
-  color: black
+  color: black;
+  font-size:large;
+  font-weight: bold;
 }
 
 #card {
   width: 20rem;
   background-color: #4878D9;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
 #selectButton {
@@ -47,29 +47,27 @@
 }
 
 #profile {
-  border-radius: 30px;
-  font-size: small;
-  width: 10rem;
-  margin: 10px;
-
+margin: 0px;
+width: 400px;
+z-index: 10;
 }
 
 #profileImg {
-  align-items: center;
-  width: 4rem;
-  border-radius: 30px;
+  /* align-items: center; */
+  /* width: 4rem; */
+  border-radius: 50px;
 }
 
-#userName {
+/* #userName {
   font-size: medium;
-}
+} */
 
-#table {
+/* #table {
   width: 60%;
   margin: auto;
   margin-bottom: 10px;
   border: #4878D9;
-}
+} */
 
 #changeButton {
   float: right;
@@ -85,7 +83,8 @@
 }
 
 #tableHead {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -109,6 +108,16 @@
   bottom: 0;
   right: 0;
   left: 0;
-
   background-color: #D9043D;
 }
+
+#searchForm{
+margin:2rem;
+}
+
+#profileTable{
+  /* float: right; */
+  margin: 0;
+  width: 400px;
+  z-index: 0;
+  }

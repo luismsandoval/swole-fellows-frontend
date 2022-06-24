@@ -27,9 +27,10 @@ class ProfileModal extends React.Component {
         this.props.addUserInfo(newProfile);
         this.props.onHide();
     }
-  //   this.props.addUserInfo(newProfile);
-  //   this.props.onHide();
-  // }
+
+    componentDidMount() {
+      this.props.getUserInfo();
+    }
 
 
   render() {
@@ -44,8 +45,8 @@ class ProfileModal extends React.Component {
           <Form onSubmit={this.handleProfileSubmit} >
 
             <Form.Group className="mb-3" controlId="targetCalories">
-              <Form.Label>Target Calories: {this.props.targetCal}</Form.Label>
-              <Form.Control type="name" placeholder="Enter caloric goal" />
+              <Form.Label>Target Calories: </Form.Label>
+              <Form.Control type="name" placeholder={this.props.userInfo.targetCal} />
 
               </Form.Group>
 
