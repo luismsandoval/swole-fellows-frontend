@@ -187,7 +187,7 @@ class Dashboard extends React.Component {
                       Serving Size {Math.round(value.servingSize)} g
                     </ListGroup.Item>
                     <Button
-                      variant="primary"
+                      variant="light"
                       onClick={() => this.handleShowModal(value)}
                       id="selectButton"
                     >
