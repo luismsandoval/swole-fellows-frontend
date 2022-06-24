@@ -17,7 +17,7 @@ class Charts extends React.Component {
     return (
       <Container style={{ width: "40%" }}>
         <Carousel>
-          {/* <Carousel.Item>
+          <Carousel.Item>
             <Doughnut
               options={{
                 plugins: {
@@ -55,7 +55,7 @@ class Charts extends React.Component {
                 ],
               }}
             />
-          </Carousel.Item> */}
+          </Carousel.Item>
           <Carousel.Item>
             <Doughnut
               options={{
@@ -95,7 +95,7 @@ class Charts extends React.Component {
               }}
             />
           </Carousel.Item>
-          {/* <Carousel.Item>
+          <Carousel.Item>
             <Bar
               options={{
                 responsive: true,
@@ -122,7 +122,7 @@ class Charts extends React.Component {
                 ],
               }}
             />
-          </Carousel.Item> */}
+          </Carousel.Item>
         </Carousel>
       </Container>
     );

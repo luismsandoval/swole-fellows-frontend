@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
   };
 
   handleShowModal = (value) => {
-    console.log("value: ", value);
+    // console.log("value: ", value);
     this.setState({
       showModal: true,
       selectedFood: value,
@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
       if (this.props.auth0.isAuthenticated) {
         const res = await this.props.auth0.getIdTokenClaims();
         const jwt = res.__raw;
-        console.log("token: ", jwt);
+        // console.log("token: ", jwt);
 
         const config = {
           headers: { Authorization: `Bearer ${jwt}` },
@@ -110,26 +110,25 @@ class Dashboard extends React.Component {
   };
 
   addMacros = () => {
-    console.log(this.state.foodsDB);
-    const protein = Object.entries(this.state.foodsDB)
+    const protein = this.state.foodsDB.length >= 1 && Object.entries(this.state.foodsDB)
       .map((value) => {
         return value[1].protein;
       })
       .reduce((a, b) => a + b);
 
-    const carbs = Object.entries(this.state.foodsDB)
+    const carbs = this.state.foodsDB.length >= 1 && Object.entries(this.state.foodsDB)
       .map((value) => {
         return value[1].carbs;
       })
       .reduce((a, b) => a + b);
 
-    const fats = Object.entries(this.state.foodsDB)
+    const fats = this.state.foodsDB.length >= 1 && Object.entries(this.state.foodsDB)
       .map((value) => {
         return value[1].fats;
       })
       .reduce((a, b) => a + b);
 
-    const calories = Object.entries(this.state.foodsDB)
+    const calories = this.state.foodsDB.length >= 1 && Object.entries(this.state.foodsDB)
       .map((value) => {
         return value[1].calories;
       })
@@ -150,7 +149,7 @@ class Dashboard extends React.Component {
       <Container className="dashboard">
         <h1>Dashboard</h1>
 
-        {this.state.macros && (
+        {this.props.targetCalories && (
           <Charts
             className="chart"
             foodsDB={this.state.foodsDB}
