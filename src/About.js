@@ -10,8 +10,8 @@ class Profile extends Component {
         <Container className="about">
           <Card className="aboutCard">
             <Card.Img src="20220207_200416.jpg" rounded="true" />
-            <Card.Header id="name" >Jim Doyle</Card.Header>
             <Card.Body>
+            <Card.Header id="name" >Jim Doyle</Card.Header>
               <ListGroup>
                 <ListGroup.Item >Software Developer</ListGroup.Item>
                 <ListGroup.Item>Marine Corps Veteran</ListGroup.Item>
