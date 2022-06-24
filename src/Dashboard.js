@@ -146,12 +146,11 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <Container className="dashboard">
-        <h1>Dashboard</h1>
+      <Container>
+        <h1 style={{textAlign: 'center'}}>Dashboard</h1>
 
         {this.props.targetCalories && (
           <Charts
-            className="chart"
             foodsDB={this.state.foodsDB}
             macros={this.state.macros}
             currentWeight={this.props.currentWeight}
@@ -162,11 +161,11 @@ class Dashboard extends React.Component {
         <Form onSubmit={this.getFoods} onChange={this.foodSearch} id="searchForm">
           <Form.Control type="name" placeholder="Search for foods!" />
         </Form>
-        <Row xs={1} md={2} className="g-4">
+        <Row xs={1} md={2} lg={3} className="g-4">
           {this.state.foodsAPI &&
-            this.state.foodsAPI.map((value) => {
+            this.state.foodsAPI.filter((obj) => obj.image !== undefined).map((value) => {
               return (
-                <Card id="card">
+                <Card id="card" bg="light">
                   <Card.Img variant="top" src={value.image} />
                   <Card.Body>
                     <Card.Title>{value.foodName}</Card.Title>

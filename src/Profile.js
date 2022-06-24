@@ -161,29 +161,29 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <>
+      <Container>
+        <h1 style={{ textAlign: "center" }}>Profile</h1>
         <Card body id="profileCard">
-        <Container className="profile-test">
-
-          <Profile />
-          <ProfileTable
-            userInfo={this.state.userInfo}
-            getFoodsFromDB={this.getFoodsFromDB}
-            getUserInfo={this.getUserInfo}
-          />
-        </Container>
-        <Button
-          id="profileButton"
-          variant="primary"
-          onClick={() => this.setState({ showProfileModal: true })}
-        >
-          Update Info
-        </Button>
-</Card>
+          <Container className="profile-test">
+            <Profile />
+            <ProfileTable
+              userInfo={this.state.userInfo}
+              getFoodsFromDB={this.getFoodsFromDB}
+              getUserInfo={this.getUserInfo}
+            />
+          </Container>
+          <Button
+            id="profileButton"
+            variant="primary"
+            onClick={() => this.setState({ showProfileModal: true })}
+          >
+            Update Info
+          </Button>
+        </Card>
         <div>
           <Card body id="profileCard">
             <Container id="tableHead">
-              <h1> This is Your Diary</h1>
+              <h1>Diary</h1>
               <Table striped bordered hover id="table">
                 <thead>
                   <tr>
@@ -247,6 +247,7 @@ class ProfilePage extends React.Component {
               </Table>
             </Container>
           </Card>
+
           <ChangeFoodModal
             show={this.state.showModal}
             onHide={this.handleHideModal}
@@ -262,7 +263,7 @@ class ProfilePage extends React.Component {
           getUserInfo={this.getUserInfo}
           userInfo={this.state.userInfo}
         />
-      </>
+      </Container>
     );
   }
 }
