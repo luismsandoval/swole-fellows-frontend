@@ -3,29 +3,39 @@ html {
   background-color: #FFFBEA;
 }
 
+#appName{
+  font-size: xx-large;
+}
 #profileCard {
-  width: 75%;
+  display: flex;
   margin: auto;
-  margin-top: 20px;
+  width: 85%;
+  margin-bottom: 20px;
+  background-color: #FFFFF7;
+  box-shadow: 10px 10px 8px #888888;
 }
 
-
-.chart {
-  width: 50%;
-}
-
-.navBar {
-  background-color: #D9043D;
+#navBar {
+  top: 0;
+  right: 0;
+  left: 0;
+  height:max-content;
+  background-color: #4878D9;
   text-decoration: none;
-  color: black;
   font-size: large;
   font-weight: bold;
 }
 
+#logo{
+  height:90px;
+}
+
 #card {
   width: 20rem;
-  background-color: #4878D9;
-  margin: 1rem;
+  background-color: #FFFFF7;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 10px 10px 8px #888888;
 }
 
 #selectButton {
@@ -37,11 +47,25 @@ html {
 
 }
 
-#logout,
-#login {
+#logout, #login {
   border-radius: 10px;
-  background-color: #4878D9;
-  width: 5rem;
+  background-color: #D9043D;
+  width: auto;
+}
+
+#login:hover, #logout:hover {
+  background-color: #FFFBEA;
+}
+
+.nav-link {
+  border-radius: 10px;
+  margin: 3px;
+  background-color: #FFFBEA;
+  width: auto;
+}
+
+.nav-link:hover {
+  background-color: #D9043D;
 }
 
 #profileButton {
@@ -87,19 +111,18 @@ html {
   border-radius: 20px;
 }
 
-#tableHead {
-  display: flex;
-  flex-direction: column;
-}
-
-
-
-#aboutCard {
-  border: 1px solid #4878D9;
-  margin: auto;
-  width: 50%;
+.aboutCard {
+  width: 33%;
   margin-bottom: 10px;
   margin-top: 10px;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.about {
+  display: flex;
+  width: 85%;
+  justify-content: space-around;
+  gap: 22px;
 }
 
 #name {
@@ -113,15 +136,43 @@ html {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #D9043D;
+  background-color: #4878D9;
 }
 
 #searchForm {
-  margin: 2rem;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 10px 10px 8px #888888;
+  width: 85%;
 }
-
-
 
 .profile-test {
   display: flex;
+}
+
+#tableHead {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  align-content: center;
+}
+
+#table {
+  min-width: none;
+  margin: auto;
+}
+#chart{
+  max-height: 600px;
+  min-width: 75%;
+}
+
+#carousel{
+  box-shadow: 10px 10px 8px #888888;
+  width: 85%;
+  margin: auto;
+}
+
+.link:hover {
+  color: #D9043D;
 }

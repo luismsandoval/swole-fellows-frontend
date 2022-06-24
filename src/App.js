@@ -7,9 +7,9 @@ import Footer from "./Footer";
 import Dashboard from "./Dashboard";
 import About from "./About";
 import ProfilePage from "./Profile";
+import Welcome from "./Welcome";
 import { withAuth0 } from "@auth0/auth0-react";
 import Container from "react-bootstrap/Container";
-
 
 class App extends React.Component {
   constructor(props) {
@@ -17,22 +17,22 @@ class App extends React.Component {
     this.state = {
       currentWeight: "",
       targetCalories: "",
-      allUserInfo: ""
+      allUserInfo: "",
     };
   }
 
   getWeightData = (data) => {
-    const weightData = data.map(value => {
+    const weightData = data.map((value) => {
       console.log(value);
-      return {weight: value.currentWeight, timestamp: value.timestamp};
-    })
+      return { weight: value.currentWeight, timestamp: value.timestamp };
+    });
     const cal = data[data.length - 1].targetCal;
-    console.log('All user info: ', data);
+    console.log("All user info: ", data);
     this.setState({
       currentWeight: weightData,
       targetCalories: cal,
     });
-  }
+  };
 
   render() {
     return (
@@ -51,13 +51,19 @@ class App extends React.Component {
                 />
               }
             ></Route>
+            {this.props.auth0.isAuthenticated ?
             <Route
               exact
               path="/"
-              element={<ProfilePage 
-                getWeightData={this.getWeightData}
-              />}
+              element={<ProfilePage getWeightData={this.getWeightData} />}
             ></Route>
+            :
+            <Route
+              exact
+              path="/"
+              element={<Welcome />}
+            ></Route>
+            }
             <Route exact path="/about" element={<About />}></Route>
           </Routes>
           <Footer />

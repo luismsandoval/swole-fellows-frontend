@@ -15,11 +15,11 @@ class Charts extends React.Component {
 
   render() {
     return (
-      <Container style={{ width: "40%" }}>
-        <Carousel>
+      <Container>
+        <Carousel id="carousel">
           <Carousel.Item>
             <Card body>
-              <Doughnut
+              <Doughnut id="chart"
                 options={{
                   plugins: {
                     legend: {
@@ -61,7 +61,7 @@ class Charts extends React.Component {
           </Carousel.Item>
           <Carousel.Item>
             <Card body>
-              <Doughnut
+              <Doughnut id="chart"
                 options={{
                   plugins: {
                     legend: {
@@ -102,7 +102,7 @@ class Charts extends React.Component {
           </Carousel.Item>
           <Carousel.Item>
             <Card body>
-              <Bar
+              <Bar id="chart"
                 options={{
                   responsive: true,
                   plugins: {
