@@ -7,7 +7,7 @@ import ChangeFoodModal from "./ChangeFoodModal";
 import ProfileModal from "./ProfileModal";
 import ProfileTable from "./ProfileTable";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Container } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -162,8 +162,8 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <>
+        <Card body id="profileCard">
           <Profile />
-
           <ProfileTable
             userInfo={this.state.userInfo}
             getFoodsFromDB={this.getFoodsFromDB}
@@ -176,66 +176,74 @@ class ProfilePage extends React.Component {
           >
             Update Info
           </Button>
+        </Card>
         <div>
-          <Container id="tableHead">
-            <h1> This is Your Diary</h1>
-            <Table striped bordered hover id="table">
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Amount Consumed {"g"}</th>
-                  <th>Calories</th>
-                  <th>Carbs {"g"}</th>
-                  <th>Protein {"g"}</th>
-                  <th>Fat {"g"}</th>
-                  <th>Make Changes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.entries(this.state.foodsDB).map((obj) => (
-                  <>
-                    <tr key={obj[1]._id}>
-                      <td>{obj[1].name}</td>
-                      <td>{obj[1].amountConsumed}</td>
-                      <td>{obj[1].calories}</td>
-                      <td>{obj[1].carbs}</td>
-                      <td>{obj[1].protein}</td>
-                      <td>{obj[1].fats}</td>
-                      <td>
-                        <Dropdown>
-                          <Dropdown.Toggle variant="Danger" id="dropdown-basic">
-                            Edit
-                          </Dropdown.Toggle>
+          <Card body id="profileCard">
+            <Container id="tableHead">
+              <h1> This is Your Diary</h1>
+              <Table striped bordered hover id="table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Amount Consumed {"g"}</th>
+                    <th>Calories</th>
+                    <th>Carbs {"g"}</th>
+                    <th>Protein {"g"}</th>
+                    <th>Fat {"g"}</th>
+                    <th>Make Changes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.entries(this.state.foodsDB).map((obj) => (
+                    <>
+                      <tr key={obj[1]._id}>
+                        <td>{obj[1].name}</td>
+                        <td>{obj[1].amountConsumed}</td>
+                        <td>{obj[1].calories}</td>
+                        <td>{obj[1].carbs}</td>
+                        <td>{obj[1].protein}</td>
+                        <td>{obj[1].fats}</td>
+                        <td>
+                          <Dropdown>
+                            <Dropdown.Toggle
+                              variant="Danger"
+                              id="dropdown-basic"
+                            >
+                              Edit
+                            </Dropdown.Toggle>
 
-                          <Dropdown.Menu>
-                            <Dropdown.Item
-                              id="changeButton"
-                              variant="primary"
-                              onClick={() =>
-                                this.setState({
-                                  selectedFoodToUpdate: obj[1],
-                                  showModal: true,
-                                })
-                              }
-                            >
-                              Change
-                            </Dropdown.Item>
-                            <Dropdown.Item
-                              id="deleteButton"
-                              variant="danger"
-                              onClick={() => this.deleteFoodFromDB(obj[1]._id)}
-                            >
-                              Delete
-                            </Dropdown.Item>
-                          </Dropdown.Menu>
-                        </Dropdown>
-                      </td>
-                    </tr>
-                  </>
-                ))}
-              </tbody>
-            </Table>
-          </Container>
+                            <Dropdown.Menu>
+                              <Dropdown.Item
+                                id="changeButton"
+                                variant="primary"
+                                onClick={() =>
+                                  this.setState({
+                                    selectedFoodToUpdate: obj[1],
+                                    showModal: true,
+                                  })
+                                }
+                              >
+                                Change
+                              </Dropdown.Item>
+                              <Dropdown.Item
+                                id="deleteButton"
+                                variant="danger"
+                                onClick={() =>
+                                  this.deleteFoodFromDB(obj[1]._id)
+                                }
+                              >
+                                Delete
+                              </Dropdown.Item>
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </Table>
+            </Container>
+          </Card>
           <ChangeFoodModal
             show={this.state.showModal}
             onHide={this.handleHideModal}
