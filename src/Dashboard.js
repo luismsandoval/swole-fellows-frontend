@@ -159,7 +159,7 @@ class Dashboard extends React.Component {
           />
         )}
 
-        <Form onSubmit={this.getFoods} onChange={this.foodSearch}>
+        <Form onSubmit={this.getFoods} onChange={this.foodSearch} id="searchForm">
           <Form.Control type="name" placeholder="Search for foods!" />
         </Form>
         <Row xs={1} md={2} className="g-4">
