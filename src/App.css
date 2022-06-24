@@ -1,4 +1,5 @@
-#root, html{
+#root,
+html {
   background-color: #FFFBEA;
 }
 
@@ -17,7 +18,7 @@
   background-color: #D9043D;
   text-decoration: none;
   color: black;
-  font-size:large;
+  font-size: large;
   font-weight: bold;
 }
 
@@ -51,9 +52,9 @@
 }
 
 #profile {
-margin: 0px;
-width: 400px;
-z-index: 10;
+  margin: 0px;
+  width: 400px;
+  z-index: 10;
 }
 
 #profileImg {
@@ -115,13 +116,12 @@ z-index: 10;
   background-color: #D9043D;
 }
 
-#searchForm{
-margin:2rem;
+#searchForm {
+  margin: 2rem;
 }
 
-#profileTable{
-  /* float: right; */
-  margin: 0;
-  width: 400px;
-  z-index: 0;
-  }
+
+
+.profile-test {
+  display: flex;
+}
