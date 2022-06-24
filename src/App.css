@@ -3,7 +3,11 @@ html {
   background-color: #FFFBEA;
 }
 
-
+#profileCard {
+  width: 75%;
+  margin: auto;
+  margin-top: 20px;
+}
 
 
 .chart {
