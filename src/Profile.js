@@ -127,7 +127,7 @@ class ProfilePage extends React.Component {
           url: "/profile",
         };
         const response = await axios(config);
-        this.setState({ userInfo: response.data[response.data.length - 1], allUserInfo: response.data });
+        this.setState({ userInfo: response.data[response.data.length - 1], allUserInfo: response.data }, this.props.getWeightData(response.data));
       }
     } catch (error) {
       console.error("getUserInfo error: ", error);

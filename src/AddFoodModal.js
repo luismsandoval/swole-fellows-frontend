@@ -28,7 +28,7 @@ class AddFoodModal extends React.Component {
 
       // email: user.email
     }
-    console.log(newFood);
+    // console.log(newFood);
     this.props.addFoodtoDB(newFood);
     this.props.onHide();
   }
