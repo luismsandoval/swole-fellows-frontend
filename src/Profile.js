@@ -162,6 +162,7 @@ class ProfilePage extends React.Component {
   render() {
     return (
       <>
+        <Container className="profile-test">
           <Profile />
 
           <ProfileTable
@@ -169,13 +170,14 @@ class ProfilePage extends React.Component {
             getFoodsFromDB={this.getFoodsFromDB}
             getUserInfo={this.getUserInfo}
           />
-          <Button
-            id="profileButton"
-            variant="primary"
-            onClick={() => this.setState({ showProfileModal: true })}
-          >
-            Update Info
-          </Button>
+        </Container>
+        <Button
+          id="profileButton"
+          variant="primary"
+          onClick={() => this.setState({ showProfileModal: true })}
+        >
+          Update Info
+        </Button>
         <div>
           <Container id="tableHead">
             <h1> This is Your Diary</h1>
