@@ -21,7 +21,7 @@ class ProfileModal extends React.Component {
             age: event.target.age.value,
             sex: event.target.sex.value,
             height: event.target.height.value,
-            timestamp: new Date().toString().substring(0,15)
+            timestamp: new Date().toString().substring(3,15)
         }
         console.log(newProfile.timestamp)
         this.props.addUserInfo(newProfile);

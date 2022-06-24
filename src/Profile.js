@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import ChangeFoodModal from "./ChangeFoodModal";
 import ProfileModal from "./ProfileModal";
 import ProfileTable from "./ProfileTable";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from "react-bootstrap/Dropdown";
 
 const Profile = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -27,8 +27,6 @@ const Profile = () => {
 
 class ProfilePage extends React.Component {
   constructor(props) {
-
-
     super(props);
     this.state = {
       foodsDB: "",
@@ -39,18 +37,17 @@ class ProfilePage extends React.Component {
     };
   }
 
-
   handleAmountChange = (event) => this.setState({ title: event.target.value });
 
   handleHideModal = (event) => {
     this.setState({
-      showModal: false
+      showModal: false,
     });
   };
 
   handleHideProfileModal = (event) => {
     this.setState({
-      showProfileModal: false
+      showProfileModal: false,
     });
   };
 
@@ -127,7 +124,13 @@ class ProfilePage extends React.Component {
           url: "/profile",
         };
         const response = await axios(config);
-        this.setState({ userInfo: response.data[response.data.length - 1], allUserInfo: response.data }, this.props.getWeightData(response.data));
+        this.setState(
+          {
+            userInfo: response.data[response.data.length - 1],
+            allUserInfo: response.data,
+          },
+          this.props.getWeightData(response.data)
+        );
       }
     } catch (error) {
       console.error("getUserInfo error: ", error);
@@ -155,21 +158,18 @@ class ProfilePage extends React.Component {
     }
   };
 
-
   render() {
     return (
-
       <>
         <Profile />
-        <ProfileTable
-          userInfo={this.state.userInfo}
-          getFoodsFromDB={this.getFoodsFromDB}
-          getUserInfo={this.getUserInfo}
-        />
+          <div>
+          <ProfileTable
+            userInfo={this.state.userInfo}
+            getFoodsFromDB={this.getFoodsFromDB}
+            getUserInfo={this.getUserInfo}
+          />
         <Button
-
           id="profileButton"
-
           variant="primary"
           onClick={() => this.setState({ showProfileModal: true })}
         >
@@ -199,25 +199,33 @@ class ProfilePage extends React.Component {
                   <td>{obj[1].protein}</td>
                   <td>{obj[1].fats}</td>
                   <td>
-                  <Dropdown>
-                  <Dropdown.Toggle variant="Danger" id="dropdown-basic">
-                    Edit
-                  </Dropdown.Toggle>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="Danger" id="dropdown-basic">
+                        Edit
+                      </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item id="changeButton"
-                      variant="primary"
-                      onClick={() =>
-                        this.setState({
-                          selectedFoodToUpdate: obj[1],
-                          showModal: true,
-                        })
-                      }>Change</Dropdown.Item>
-                    <Dropdown.Item id="deleteButton"
-                      variant="danger"
-                      onClick={() => this.deleteFoodFromDB(obj[1]._id)}>Delete</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+                      <Dropdown.Menu>
+                        <Dropdown.Item
+                          id="changeButton"
+                          variant="primary"
+                          onClick={() =>
+                            this.setState({
+                              selectedFoodToUpdate: obj[1],
+                              showModal: true,
+                            })
+                          }
+                        >
+                          Change
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          id="deleteButton"
+                          variant="danger"
+                          onClick={() => this.deleteFoodFromDB(obj[1]._id)}
+                        >
+                          Delete
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </td>
                 </tr>
               </>
@@ -230,11 +238,10 @@ class ProfilePage extends React.Component {
           selectedFoodToUpdate={this.state.selectedFoodToUpdate}
           updateFoodFromDB={this.updateFoodFromDB}
         />
+        </div>
         <ProfileModal
           show={this.state.showProfileModal}
-
           onHide={this.handleHideProfileModal}
-
           addUserInfo={this.addUserInfo}
           updateUserInfo={this.updateUserInfo}
         />

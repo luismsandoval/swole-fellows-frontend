@@ -37,7 +37,7 @@ class App extends React.Component {
     this.setState({
       currentWeight: weightData,
       targetCalories: cal,
-    }, ()=>console.log(this.state));
+    });
   }
 
   // getStats = (weight, calories) => {
@@ -75,7 +75,7 @@ class App extends React.Component {
             <Route
               id="route"
               exact
-              path="/"
+              path="/dashboard"
               element={
                 <Dashboard
                   currentWeight={this.state.currentWeight}
@@ -85,7 +85,7 @@ class App extends React.Component {
             ></Route>
             <Route
               exact
-              path="/profile"
+              path="/"
               element={<ProfilePage 
                 getWeightData={this.getWeightData}
               />}
