@@ -11,7 +11,7 @@ class Profile extends Component {
         <Card id="aboutCard">
           <Card.Img src='' />
           <Card.Body>
-            <Card.Header>Jim Doyle</Card.Header>
+            <Card.Header id="name">Jim Doyle</Card.Header>
             <Card.Text>I really like to code</Card.Text>
           </Card.Body>
         </Card>

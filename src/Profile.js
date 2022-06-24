@@ -37,6 +37,10 @@ class ProfilePage extends React.Component {
     };
   }
 
+  // componentDidMount() {
+  //   this.getUserInfo();
+  // }
+
   handleAmountChange = (event) => this.setState({ title: event.target.value });
 
   handleHideModal = (event) => {
@@ -181,7 +185,7 @@ class ProfilePage extends React.Component {
             <tr>
               <th>Item</th>
               <th>Amount Consumed {"g"}</th>
-              <th>Calories {"g"}</th>
+              <th>Calories</th>
               <th>Carbs {"g"}</th>
               <th>Protein {"g"}</th>
               <th>Fat {"g"}</th>
@@ -244,6 +248,8 @@ class ProfilePage extends React.Component {
           onHide={this.handleHideProfileModal}
           addUserInfo={this.addUserInfo}
           updateUserInfo={this.updateUserInfo}
+          getUserInfo={this.getUserInfo}
+          userInfo={this.state.userInfo}
         />
       </>
     );
