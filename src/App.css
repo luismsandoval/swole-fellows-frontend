@@ -86,21 +86,8 @@ html {
 }
 
 #profileImg {
-  /* align-items: center; */
-  /* width: 4rem; */
   border-radius: 50px;
 }
-
-/* #userName {
-  font-size: medium;
-} */
-
-/* #table {
-  width: 60%;
-  margin: auto;
-  margin-bottom: 10px;
-  border: #4878D9;
-} */
 
 #changeButton {
   float: right;
@@ -163,7 +150,7 @@ html {
 }
 
 #table {
-  min-width: none;
+  width: 60%;
   margin: auto;
 }
 #chart{
@@ -179,4 +166,10 @@ html {
 
 .link:hover {
   color: #D9043D;
+}
+
+#navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
