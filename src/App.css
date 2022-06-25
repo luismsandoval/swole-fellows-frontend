@@ -171,3 +171,9 @@ html {
   flex-wrap: wrap;
   justify-content: flex-end;
 }
+
+.g-4 {
+  overflow-y: scroll;
+  max-height: 700px;
+  margin-bottom: 100px;
+}
