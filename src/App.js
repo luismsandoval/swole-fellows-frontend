@@ -9,7 +9,6 @@ import About from "./About";
 import ProfilePage from "./Profile";
 import Welcome from "./Welcome";
 import { withAuth0 } from "@auth0/auth0-react";
-import Container from "react-bootstrap/Container";
 
 class App extends React.Component {
   constructor(props) {
@@ -51,19 +50,15 @@ class App extends React.Component {
                 />
               }
             ></Route>
-            {this.props.auth0.isAuthenticated ?
-            <Route
-              exact
-              path="/"
-              element={<ProfilePage getWeightData={this.getWeightData} />}
-            ></Route>
-            :
-            <Route
-              exact
-              path="/"
-              element={<Welcome />}
-            ></Route>
-            }
+            {this.props.auth0.isAuthenticated ? (
+              <Route
+                exact
+                path="/"
+                element={<ProfilePage getWeightData={this.getWeightData} />}
+              ></Route>
+            ) : (
+              <Route exact path="/" element={<Welcome />}></Route>
+            )}
             <Route exact path="/about" element={<About />}></Route>
           </Routes>
           <Footer />

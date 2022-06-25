@@ -1,18 +1,18 @@
 #root,
-
 html {
-  background-color: #FFFBEA;
+  background-color: #fffbea;
 }
 
-#appName{
+#appName {
   font-size: xx-large;
 }
+
 #profileCard {
   display: flex;
   margin: auto;
   width: 90%;
   margin-bottom: 20px;
-  background-color: #FFFFF7;
+  background-color: #fffff7;
   box-shadow: 10px 10px 16px #888888;
 }
 
@@ -20,20 +20,20 @@ html {
   top: 0;
   right: 0;
   left: 0;
-  height:max-content;
-  background-color: #4878D9;
+  height: max-content;
+  background-color: #4878d9;
   text-decoration: none;
   font-size: large;
   font-weight: bold;
 }
 
-#logo{
-  height:90px;
+#logo {
+  height: 90px;
 }
 
 #card {
   width: 20rem;
-  background-color: #FFFFF7;
+  background-color: #fffff7;
   margin: auto;
   margin-top: 20px;
   box-shadow: 10px 10px 16px #888888;
@@ -42,39 +42,41 @@ html {
 #selectButton {
   margin: auto;
   color: black;
-  background-color: #D9043D;
+  background-color: #d9043d;
   width: 10rem;
   border-radius: 10px;
 }
 
 #selectButton:hover {
-  background-color: #4878D9;
+  background-color: #4878d9;
 }
 
-#logout, #login {
+#logout,
+#login {
   border-radius: 10px;
-  background-color: #D9043D;
+  background-color: #d9043d;
   width: auto;
 }
 
-#login:hover, #logout:hover {
-  background-color: #FFFBEA;
+#login:hover,
+#logout:hover {
+  background-color: #fffbea;
 }
 
 .nav-link {
   border-radius: 10px;
   margin: 3px;
-  background-color: #FFFBEA;
+  background-color: #fffbea;
   width: auto;
 }
 
 .nav-link:hover {
-  background-color: #D9043D;
+  background-color: #d9043d;
 }
 
 #profileButton {
   border-radius: 20px;
-  background-color: #4878D9;
+  background-color: #4878d9;
   width: 7rem;
   font-size: x-small;
 }
@@ -86,31 +88,18 @@ html {
 }
 
 #profileImg {
-  /* align-items: center; */
-  /* width: 4rem; */
   border-radius: 50px;
 }
 
-/* #userName {
-  font-size: medium;
-} */
-
-/* #table {
-  width: 60%;
-  margin: auto;
-  margin-bottom: 10px;
-  border: #4878D9;
-} */
-
 #changeButton {
   float: right;
-  background-color: #4878D9;
+  background-color: #4878d9;
   width: 5rem;
   border-radius: 20px;
 }
 
 #deleteButton {
-  background-color: #D9043D;
+  background-color: #d9043d;
   width: 5rem;
   border-radius: 20px;
 }
@@ -140,7 +129,7 @@ html {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #4878D9;
+  background-color: #4878d9;
 }
 
 #searchForm {
@@ -162,21 +151,23 @@ html {
   align-content: center;
 }
 
-#table {
-  min-width: none;
-  margin: auto;
-}
-#chart{
+#chart {
   max-height: 600px;
   min-width: 75%;
 }
 
-#carousel{
+#carousel {
   box-shadow: 10px 10px 16px #888888;
   width: 90%;
   margin: auto;
 }
 
 .link:hover {
-  color: #D9043D;
+  color: #d9043d;
+}
+
+#navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }

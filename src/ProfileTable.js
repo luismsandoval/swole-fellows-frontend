@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Table } from "react-bootstrap";
-import ProfileModal from "./ProfileModal";
 
 class ProfileTable extends React.Component {
   componentDidMount() {

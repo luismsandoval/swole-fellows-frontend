@@ -35,7 +35,6 @@ class Dashboard extends React.Component {
   };
 
   handleShowModal = (value) => {
-    // console.log("value: ", value);
     this.setState({
       showModal: true,
       selectedFood: value,
@@ -192,7 +191,7 @@ class Dashboard extends React.Component {
                       id="selectButton"
                     >
                       Select Food
-                    </Button>{" "}
+                    </Button>
                   </ListGroup>
                 </Card>
               );
