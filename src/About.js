@@ -11,7 +11,7 @@ class Profile extends Component {
           <Card className="aboutCard">
             <Card.Img src="20220207_200416.jpg" rounded="true" />
             <Card.Body>
-            <Card.Header id="name" >Jim Doyle</Card.Header>
+              <Card.Header id="name" >Jim Doyle</Card.Header>
               <ListGroup>
                 <ListGroup.Item >Software Developer</ListGroup.Item>
                 <ListGroup.Item>Marine Corps Veteran</ListGroup.Item>
@@ -21,7 +21,7 @@ class Profile extends Component {
             </Card.Body>
           </Card>
           <Card className="aboutCard">
-            <Card.Img src="IMG-0476.jpg"/>
+            <Card.Img src="IMG-0476.jpg" />
             <Card.Body>
               <Card.Header id="name">Luis Sandoval</Card.Header>
               <Card.Text>
@@ -34,10 +34,10 @@ class Profile extends Component {
             </Card.Body>
           </Card>
           <Card className="aboutCard">
-            <Card.Img src="" />
+            <Card.Img src="profile.jpeg" />
             <Card.Body>
               <Card.Header id="name">Justin Mathieu</Card.Header>
-              <Card.Text>I like to code.</Card.Text>
+              <Card.Text>Software developer with background in construction and electrical work. Passionate about creating unique solutions utilizing my software development skills.</Card.Text>
             </Card.Body>
           </Card>
         </Container>
