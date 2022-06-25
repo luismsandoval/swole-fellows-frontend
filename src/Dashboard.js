@@ -191,7 +191,7 @@ class Dashboard extends React.Component {
                       id="selectButton"
                     >
                       Select Food
-                    </Button>{" "}
+                    </Button>
                   </ListGroup>
                 </Card>
               );
