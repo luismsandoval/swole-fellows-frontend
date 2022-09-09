@@ -1,6 +1,8 @@
-# 301n26-Final-Project
+# Swole Fellows Frontend
 
-## Members
+[Swole Fellows Web App](https://swole-fellows-app.netlify.app/)
+
+## Collaborators
 1. Luis Sandoval
 2. Justin Mathieu 
 3. Jim Doyle
